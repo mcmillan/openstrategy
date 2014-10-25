@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title OpenStrate.gy
+    = stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    javascript:
+      WebFontConfig = { fontdeck: { id: '50191' } };
+
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+  body
+    header
+      .container
+        h1 OpenStrate.gy
+        nav
+          a(href='#') About
+          a(href='#') Jobs
+          a.submit(href='#') Submit Link
+    .container
+      main
+        = yield
+    
+    = javascript_include_tag :application, 'data-turbolinks-track' => true
