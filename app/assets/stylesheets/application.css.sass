@@ -72,7 +72,9 @@ header
 main
   padding: 20px 0
 
-// categories
+.categories
+  +clearfix
+
 a.category
   display: block
   float: left
@@ -190,3 +192,17 @@ input
   p
     margin: 7px 0
     
+footer
+  margin-bottom: 20px
+  text-align: center
+  font-size: 14px
+  color: #999
+  
+  a
+    color: #666
+    text-decoration: none
+    +font-bold
+    +transition(0.3s ease color)
+    
+    &:hover
+      color: #f21f1a

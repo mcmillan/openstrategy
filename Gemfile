@@ -31,6 +31,7 @@ gem 'geo_pattern'
 gem 'rails_12factor'
 gem 'puma'
 gem 'high_voltage'
+gem 'gibbon'
 
 group :development do
   gem 'spring'

@@ -30,5 +30,10 @@ html
     .container
       main
         = yield
+      
+      footer
+        | An&nbsp;
+        a(href='http://itsnotrocket.io' target='_blank') It's Not Rocket Science
+        |  jam.
     
     = javascript_include_tag :application, 'data-turbolinks-track' => true

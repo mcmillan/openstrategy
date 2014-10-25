@@ -1,3 +1,4 @@
-- @categories.each do |category|
-  a.category(href=category_path(category) style="background-image: #{background(category.title)}")
-    .category__title=category.title
+.categories
+  - @categories.each do |category|
+    a.category(href=category_path(category) style="background-image: #{background(category.title)}")
+      .category__title=category.title
