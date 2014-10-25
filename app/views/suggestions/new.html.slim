@@ -1,0 +1,33 @@
+.suggestion-form
+  - if @suggestion.errors.any?
+    .error
+      strong Oh no!
+      ul
+        - @suggestion.errors.full_messages.each do |m|
+          li = m
+  = form_for @suggestion do |f|
+    .form-group
+      = f.label :category
+      = f.select :category_id, Category.all.pluck(:title, :id).prepend(['N/A', 0])
+      
+    .form-group
+      = f.label :title
+      = f.text_field :title
+    
+    .form-group
+      = f.label :description
+      = f.text_field :description
+    
+    .form-group
+      = f.label :url, 'URL'
+      = f.url_field :url
+    
+    .form-group
+      = f.label :email
+      = f.email_field :email
+    
+    .form-group
+      = f.label :twitter_username
+      = f.text_field :twitter_username, placeholder: 'Optional'
+    
+    = f.submit 'Suggest'
