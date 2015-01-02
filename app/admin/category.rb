@@ -5,5 +5,5 @@ ActiveAdmin.register Category do
     actions
   end
 
-  permit_params :title
+  permit_params :title, :weight
 end
