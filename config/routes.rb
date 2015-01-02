@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   root to: 'categories#index'
   resources :categories, only: [:index, :show]
   resources :suggestions, only: [:new, :create]
+  resources :products, only: [] do
+    member do
+      get 'image'
+    end
+  end
 end
