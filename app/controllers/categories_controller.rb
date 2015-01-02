@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :add_wide_open_cors_headers, if: -> { request.format.json? }
+  after_action :add_wide_open_cors_headers, if: -> { request.format.json? }
 
   def index
     @categories = Category.all
