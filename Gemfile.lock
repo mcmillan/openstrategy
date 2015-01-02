@@ -80,6 +80,9 @@ GEM
       warden (~> 1.2.3)
     did_you_mean (0.7.0)
       binding_of_caller
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     formtastic (3.0.0)
@@ -207,6 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   did_you_mean
+  dotenv-rails
   geo_pattern
   gibbon
   high_voltage

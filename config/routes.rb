@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'go'
     end
   end
+  resources :emails, only: :create
 
   # cors shit
   match '*path', controller: 'application', action: 'handle_options_request', via: :options
