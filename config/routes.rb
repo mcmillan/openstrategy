@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :products, only: [] do
     member do
       get 'image'
+      get 'go'
     end
   end
 end
