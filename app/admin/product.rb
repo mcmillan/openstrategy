@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
     column :title
     column :description
     column :url
-    column 'Clicks' do |p|
+    column 'Clicks', sortable: :product_clicks_count do |p|
       p.product_clicks.count
     end
     actions
