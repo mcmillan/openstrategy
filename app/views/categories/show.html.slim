@@ -1,8 +1,0 @@
-.category-header(style="background-image: #{background(@category.title)}")
-  .category-header__title = @category.title
-  .category-header__last-updated Last updated #{time_ago_in_words(@category.updated_at)} ago
-
-- @category.products.each do |product|
-  a.product(href=product.url target='_blank')
-    .product__title = product.title
-    .product__description = product.description

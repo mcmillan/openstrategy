@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # app
-  root to: 'categories#index'
   resources :categories, only: [:index, :show]
-  resources :suggestions, only: [:new, :create]
+  resources :suggestions, only: [:create]
   resources :products, only: [] do
     member do
       get 'image'
