@@ -208,6 +208,7 @@ DEPENDENCIES
   better_errors
   bourbon
   coffee-rails (~> 4.0.0)
+  color
   devise
   did_you_mean
   dotenv-rails

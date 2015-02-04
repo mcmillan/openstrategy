@@ -34,6 +34,7 @@ gem 'high_voltage'
 gem 'gibbon'
 gem 'actionpack-page_caching'
 gem 'dotenv-rails'
+gem 'color'
 
 group :development do
   gem 'spring'

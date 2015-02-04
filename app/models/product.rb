@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   validates :url, presence: true, format: URI.regexp(%w(http https))
 
   def color
-    Digest::MD5.hexdigest(title)[0...6]
+    max = 128
+    Color::RGB.new(rand(0..max), rand(0..max), rand(0..max)).html
   end
 end
