@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   after_action :add_wide_open_cors_headers, only: :handle_options_request, if: -> { request.format.json? }
 
   def default_to_json
-    request.format = :json unless params[:format]
+    request.format = :json unless params[:format] || params[:controller] =~ /admin\//
   end
 
   def handle_options_request
