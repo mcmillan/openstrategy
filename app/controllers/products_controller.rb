@@ -1,10 +1,5 @@
 class ProductsController < ApplicationController
   before_action :load_product
-  caches_page :image
-
-  def image
-    render text: GeoPattern.generate(@product.id.to_s).svg_string, content_type: 'image/svg+xml'
-  end
 
   def go
     @product.product_clicks.create(

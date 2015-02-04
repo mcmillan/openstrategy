@@ -27,12 +27,10 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 
 # misc
-gem 'geo_pattern'
 gem 'rails_12factor'
 gem 'puma'
 gem 'high_voltage'
 gem 'gibbon'
-gem 'actionpack-page_caching'
 gem 'dotenv-rails'
 gem 'color'
 
