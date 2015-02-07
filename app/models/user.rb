@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable, :validatable,
          :omniauthable
+  has_many :favorites
+  has_many :products, through: :favorites
 
   def self.from_omniauth(auth)
     where(oauth_provider: auth['provider'], oauth_user_id: auth['uid']).first_or_create do |u|

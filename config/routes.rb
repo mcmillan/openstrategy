@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+
   # users
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
     member do
       get 'image'
       get 'go'
+    end
+    resources :favorites, only: [:create] do
+      delete on: :collection, action: :destroy
     end
   end
   resources :emails, only: :create
