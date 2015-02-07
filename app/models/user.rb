@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def email_required
-    super && !provider.blank?
+  def email_required?
+    super && oauth_provider.blank?
   end
 end
