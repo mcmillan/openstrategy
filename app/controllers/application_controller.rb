@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   def add_wide_open_cors_headers
     if request.referrer
       referrer = URI.parse(request.referrer)
-      origin = "#{referrer.scheme}://#{referrer.host}:#{referrer.port}"
+      origin = "#{referrer.scheme}://#{referrer.host}#{referrer.port ? ':' + referrer.port : ''}"
     else
       origin = 'http://openstrate.gy'
     end
