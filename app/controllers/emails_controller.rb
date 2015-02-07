@@ -1,7 +1,4 @@
 class EmailsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create], if: -> { request.format.json? }
-  after_action :add_wide_open_cors_headers, only: [:create], if: -> { request.format.json? }
-
   def create
     email = params[:email]
     gb    = Gibbon::API.new

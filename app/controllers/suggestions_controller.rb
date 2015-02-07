@@ -1,7 +1,4 @@
 class SuggestionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create], if: -> { request.format.json? }
-  after_action :add_wide_open_cors_headers, only: [:create], if: -> { request.format.json? }
-
   def create
     @suggestion = Suggestion.new(suggestion_params)
 

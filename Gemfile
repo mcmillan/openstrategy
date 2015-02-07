@@ -24,6 +24,8 @@ gem 'slim-rails'
 
 # admin
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'activeadmin', github: 'activeadmin'
 
 # misc
