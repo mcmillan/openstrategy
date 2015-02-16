@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_product
+  before_action :load_product, only: [:create, :destroy]
+
+  def index
+    @favorites = current_user.products
+  end
 
   def create
     @product.users << current_user

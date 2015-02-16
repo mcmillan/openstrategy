@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       delete on: :collection, action: :destroy
     end
   end
+  resources :favorites, only: :index
   resources :emails, only: :create
 
   # cors shit
