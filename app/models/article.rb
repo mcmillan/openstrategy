@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
 
   validates :user, presence: true
   validates :title, presence: true
-  validates :description, presence: true
+  # validates :description, presence: true
   validates :url, presence: true, format: URI.regexp(%w(http https))
 
   def score
