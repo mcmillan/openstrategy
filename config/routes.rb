@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-
   # users
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -25,6 +23,9 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: :index
   resources :emails, only: :create
+  resources :articles, only: [:index, :create] do
+    resources :votes, only: [:create]
+  end
 
   # cors shit
   match '*path', controller: 'application', action: 'handle_options_request', via: :options
