@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :favorites, only: :index
   resources :emails, only: :create
   resources :articles, only: [:index, :create] do
-    resources :votes, only: [:create]
+    member do
+      post 'vote'
+    end
   end
 
   # cors shit
