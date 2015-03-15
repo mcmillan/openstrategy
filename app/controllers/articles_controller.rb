@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
       @articles = Article.order('created_at DESC').group_by { |a| a.created_at.beginning_of_week }
       @articles = @articles.values.map { |g| g.sort_by(&:score).reverse.first }
     else
-      @articles = Article.all
+      @articles = Article.where('created_at >= ?', Date.today.beginning_of_week)
     end
   end
 
