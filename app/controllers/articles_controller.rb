@@ -2,7 +2,12 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @articles = Article.all
+    if params[:filter] == 'top'
+      @articles = Article.order('created_at DESC').group_by { |a| a.created_at.beginning_of_week }
+      @articles = @articles.values.map { |g| g.sort_by(&:score).reverse.first }
+    else
+      @articles = Article.all
+    end
   end
 
   def create
