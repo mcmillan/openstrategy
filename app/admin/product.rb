@@ -4,13 +4,14 @@ ActiveAdmin.register Product do
     column :title
     column :description
     column :url
+    column :promoted
     column 'Clicks', sortable: :product_clicks_count do |p|
       p.product_clicks.count
     end
     actions
   end
 
-  permit_params :category_id, :title, :description, :url
+  permit_params :category_id, :title, :description, :url, :promoted
 
   controller do
     def scoped_collection

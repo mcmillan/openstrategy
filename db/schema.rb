@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315144900) do
+ActiveRecord::Schema.define(version: 20150826164257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: true do |t|
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
     t.text     "body"
     t.string   "resource_id",   null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "admin_users", force: true do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "articles", force: true do |t|
+  create_table "articles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.text     "description"
@@ -61,14 +61,14 @@ ActiveRecord::Schema.define(version: 20150315144900) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weight"
   end
 
-  create_table "favorites", force: true do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
     t.datetime "created_at"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
   add_index "favorites", ["product_id"], name: "index_favorites_on_product_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
-  create_table "product_clicks", force: true do |t|
+  create_table "product_clicks", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "user_agent"
     t.string   "ip_address"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
 
   add_index "product_clicks", ["product_id"], name: "index_product_clicks_on_product_id", using: :btree
 
-  create_table "products", force: true do |t|
+  create_table "products", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "title"
     t.string   "description"
@@ -96,11 +96,12 @@ ActiveRecord::Schema.define(version: 20150315144900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_clicks_count"
+    t.boolean  "promoted"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
-  create_table "suggestions", force: true do |t|
+  create_table "suggestions", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "email"
     t.string   "twitter_username"
@@ -113,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
 
   add_index "suggestions", ["category_id"], name: "index_suggestions_on_category_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -137,7 +138,7 @@ ActiveRecord::Schema.define(version: 20150315144900) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "votes", force: true do |t|
+  create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "article_id"
     t.boolean  "positive"
