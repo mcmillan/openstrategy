@@ -27,10 +27,4 @@ ActiveAdmin.register Product do
   end
 
   permit_params :category_id, :title, :description, :url, :promoted, :logo
-
-  controller do
-    def scoped_collection
-      end_of_association_chain.includes(:product_clicks)
-    end
-  end
 end
