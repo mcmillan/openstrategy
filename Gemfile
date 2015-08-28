@@ -35,6 +35,8 @@ gem 'high_voltage'
 gem 'gibbon'
 gem 'dotenv-rails'
 gem 'color'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development do
   gem 'spring'
