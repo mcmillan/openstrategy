@@ -36,7 +36,7 @@ gem 'gibbon'
 gem 'dotenv-rails'
 gem 'color'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development do
   gem 'spring'
