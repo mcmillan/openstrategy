@@ -20,9 +20,6 @@ ActiveAdmin.register Product do
     column 'Logo' do |p|
       p.logo.present? ? link_to('View', p.logo.url, target: '_blank') : '-'
     end
-    column 'Clicks', sortable: :product_clicks_count do |p|
-      p.product_clicks_count
-    end
     actions
   end
 
