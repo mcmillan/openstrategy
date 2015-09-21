@@ -37,6 +37,7 @@ gem 'dotenv-rails'
 gem 'color'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'rollbar', '~> 1.2.7'
 
 group :development do
   gem 'spring'
