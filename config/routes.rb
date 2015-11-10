@@ -23,11 +23,6 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: :index
   resources :emails, only: :create
-  resources :articles, only: [:index, :create] do
-    member do
-      post 'vote'
-    end
-  end
 
   # cors shit
   match '*path', controller: 'application', action: 'handle_options_request', via: :options

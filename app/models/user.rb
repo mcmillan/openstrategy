@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
          :omniauthable
   has_many :favorites
   has_many :products, through: :favorites
-  has_many :articles
-  has_many :votes
 
   def self.from_omniauth(auth)
     where(oauth_provider: auth['provider'], oauth_user_id: auth['uid']).first_or_create do |u|
