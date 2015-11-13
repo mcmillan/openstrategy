@@ -3,6 +3,7 @@ ActiveAdmin.register User do
     column :name
     column :location
     column :bio
+    column :admin
     actions
   end
 

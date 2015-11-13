@@ -8,12 +8,12 @@ class FavoritesController < ApplicationController
 
   def create
     @product.users << current_user
-    head :no_content
+    redirect_to @product.category
   end
 
   def destroy
     @product.users.delete(current_user)
-    head :no_content
+    redirect_to @product.category
   end
 
   private

@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'autoprefixer-rails'
 
 # admin
 gem 'devise'
@@ -27,7 +28,7 @@ gem 'activeadmin', github: 'activeadmin'
 # misc
 gem 'rails_12factor'
 gem 'puma'
-gem 'high_voltage'
+gem 'friendly_id', '~> 5.1.0'
 gem 'gibbon', '~> 1.1.0'
 gem 'dotenv-rails'
 gem 'color'
@@ -39,4 +40,5 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'did_you_mean'
+  gem 'pry-rails'
 end

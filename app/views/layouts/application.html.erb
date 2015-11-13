@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Open Strategy</title>
+    <%= csrf_meta_tags %>
+    <%=
+      stylesheet_link_tag :application,
+                          '//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic',
+                          '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+    %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <%= link_to root_url do %>
+          <%= image_srcset_tag 'logo.png', { '1x' => 'logo.png', '2x' => 'logo@2x.png' }, class: 'header-logo' %>
+        <% end %>
+
+        <div class="nav">
+          <%= link_to 'Tools', root_url, class: nav_class('categories') %>
+          <% if user_signed_in? %>
+            <%= link_to 'Favorites', favorites_path, class: nav_class('favorites') %>
+          <% end %>
+          <%= link_to 'Community', root_url, class: nav_class('community') %>
+          <%= link_to 'Jobs', root_url, class: nav_class('jobs') %>
+        </div>
+
+        <div class="user-overview">
+          <% if user_signed_in? %>
+            <div class="user-overview__name"><%= current_user.name %></div>
+            <img src="<%= current_user.image %>" class="user-overview__image">
+          <% else %>
+            <%= link_to 'Sign In', user_omniauth_authorize_path(provider: :twitter), class: 'button button--twitter' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="page">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= javascript_include_tag :application %>
+  </body>
+</html>

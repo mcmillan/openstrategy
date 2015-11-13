@@ -1,0 +1,30 @@
+<div class="tools row">
+  <div class="col col--50">
+    <% @categories.each do |c| %>
+      <%= link_to c, class: c == @category ? 'tool tool--selected' : 'tool' do %>
+        <div class="tool__title"><%= c.title %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if @products %>
+    <div class="col col--50">
+      <% @products.each do |p| %>
+        <div class="tool tool--actionable <% if p.promoted? %>tool--promoted<% end %>">
+          <% if user_signed_in? && p.favorited_by?(current_user) %>
+            <i class="tool__favorited fa fa-star"></i>
+          <% end %>
+          <div class="tool__title"><%= p.title %></div>
+          <div class="tool__description"><%= p.description %></div>
+          <div class="tool__actions">
+            <%= link_to 'Go', go_product_path(p), class: 'button', target: '_blank' %>
+
+            <% if user_signed_in? %>
+              <%= link_to p.favorited_by?(current_user) ? 'Unfavorite' : 'Favorite', product_favorites_path(p), class: 'button', method: p.favorited_by?(current_user) ? :delete : :post %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

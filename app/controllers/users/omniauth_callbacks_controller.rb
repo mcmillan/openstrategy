@@ -3,6 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     sign_in @user
-    redirect_to 'http://openstrate.gy'
+    
+    redirect_to root_path
   end
 end

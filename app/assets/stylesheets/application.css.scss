@@ -2,4 +2,174 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font: 16px/1.6 'Lato', sans-serif;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 25px 0;
+  border-bottom: 1px #eee solid;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  margin-right: 30px;
+  height: 30px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  display: block;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #666;
+
+  &:not(.nav-link--active):hover {
+    background: #eee;
+    color: #333;
+  }
+}
+
+.nav-link--active {
+  background: #92cf10;
+  color: #fff;
+}
+
+.user-overview {
+  margin-left: auto;
+  display: flex;
+}
+
+.user-overview__name {
+  margin: 0 10px;
+}
+
+.user-overview__image {
+  height: 30px;
+  display: block;
+}
+
+.page {
+  padding: 25px 0;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.col--50 {
+  width: 50%;
+}
+
+.col--25 {
+  width: 25%;
+}
+
+.tools {
+  display: flex;
+}
+
+.tool {
+  display: block;
+  padding: 20px 22px;
+  background: #eee;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.tool--selected {
+  background: #92cf10;
+}
+
+.tool__favorited {
+  float: right;
+  margin-top: 7px;
+}
+
+.tool__title {
+  text-transform: uppercase;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  .tool--selected & {
+    color: #fff;
+  }
+}
+
+.tool__description {
+  color: #666;
+  margin-top: 6px;
+}
+
+.tool__favorited,
+.tool__title,
+.tool__description {
+  transition: .1s ease all;
+
+  .tool--actionable:hover & {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.tool__actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: .1s ease all;
+
+  .tool--actionable:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+}
+
+.empty__icon {
+  font-size: 3rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 6px 30px;
+  background: #bbb;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }

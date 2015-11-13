@@ -1,0 +1,19 @@
+<% @favorites.each do |p| %>
+  <div class="tool tool--actionable">
+    <div class="tool__title"><%= p.title %></div>
+    <div class="tool__description"><%= p.description %></div>
+    <div class="tool__actions">
+      <%= link_to 'Go', go_product_path(p), class: 'button', target: '_blank' %>
+      <%= link_to 'Unfavorite', product_favorites_path(p), class: 'button', method: :delete %>
+    </div>
+  </div>
+<% end %>
+
+<% unless @favorites.any? %>
+  <div class="empty">
+    <div class="empty__icon">
+      <i class="fa fa-star-o"></i>
+    </div>
+    <p class="empty__description">Looks like you've not favorited anything yet.</p>
+  </div>
+<% end %>
