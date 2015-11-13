@@ -1,5 +1,5 @@
-<div class="tools row">
-  <div class="col col--50">
+<div class="tools">
+  <div class="tool-list tool-list--categories<% if !@products %> tool-list--active<% end %>">
     <% @categories.each do |c| %>
       <%= link_to c, class: c == @category ? 'tool tool--selected' : 'tool' do %>
         <div class="tool__title"><%= c.title %></div>
@@ -8,7 +8,11 @@
   </div>
 
   <% if @products %>
-    <div class="col col--50">
+    <div class="tools__back">
+      <%= link_to 'Back', root_url, class: 'button' %>
+    </div>
+
+    <div class="tool-list tool-list--products tool-list--active">
       <% @products.each do |p| %>
         <div class="tool tool--actionable <% if p.promoted? %>tool--promoted<% end %>">
           <% if user_signed_in? && p.favorited_by?(current_user) %>

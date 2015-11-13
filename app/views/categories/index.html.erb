@@ -1,1 +1,8 @@
+<% if !user_signed_in? %>
+  <div class="intro">
+    <p>oi you, get an account, you pritt stick</p>
+    <%= link_to 'Sign In with Twitter', user_omniauth_authorize_path(provider: :twitter), class: 'button button--twitter' %>
+  </div>
+<% end %>
+
 <%= render partial: 'grid' %>

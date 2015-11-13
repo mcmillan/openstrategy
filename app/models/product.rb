@@ -12,6 +12,8 @@ class Product < ActiveRecord::Base
   has_attached_file :logo
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
+  default_scope -> { order('promoted DESC') }
+
   def self.ordered_by_favorites(category, user)
     joins('LEFT OUTER JOIN favorites ON products.id = favorites.product_id')
       .where('favorites.user_id = ? OR favorites.user_id IS NULL', user.id)
