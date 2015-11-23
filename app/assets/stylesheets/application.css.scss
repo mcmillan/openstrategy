@@ -2,6 +2,8 @@ $container-width: 1200px;
 $desktop-breakpoint: $container-width;
 $tablet-breakpoint: 768px;
 
+$color-openstrategy-green: #92cf10;
+
 @import 'mixins/responsive';
 
 * {
@@ -38,8 +40,17 @@ body {
 }
 
 @import 'pages/tools';
+@import 'pages/new-post';
+@import 'pages/reply';
+
 @import 'components/header';
 @import 'components/intro';
 @import 'components/empty';
 @import 'components/tool';
 @import 'components/button';
+@import 'components/profile';
+@import 'components/form';
+@import 'components/alert';
+@import 'components/post';
+@import 'components/post-detail';
+@import 'components/name';

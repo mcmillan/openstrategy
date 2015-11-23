@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113124249) do
+ActiveRecord::Schema.define(version: 20151123202144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 20151113124249) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "url"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "product_clicks", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "user_agent"
@@ -90,6 +103,17 @@ ActiveRecord::Schema.define(version: 20151113124249) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+
+  create_table "replies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.text     "body"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
 
   create_table "suggestions", force: :cascade do |t|
     t.integer  "category_id"
@@ -124,9 +148,13 @@ ActiveRecord::Schema.define(version: 20151113124249) do
     t.string   "bio"
     t.string   "image"
     t.boolean  "admin"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "posts", "users"
+  add_foreign_key "replies", "users"
 end

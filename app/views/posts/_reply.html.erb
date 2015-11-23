@@ -1,0 +1,5 @@
+<%= render partial: 'post', locals: { post: post, depth: depth } %>
+
+<% post.replies.each do |r| %>
+  <%= render partial: 'reply', locals: { post: r, depth: depth + 1 } %>
+<% end %>

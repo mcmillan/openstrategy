@@ -31,7 +31,7 @@
 }
 
 .nav-link {
-  padding: 10px 20px;
+  padding: 6px 20px;
   display: block;
   border-radius: 5px;
   margin-right: 10px;
@@ -51,7 +51,7 @@
 }
 
 .nav-link--active {
-  background: #92cf10;
+  background: $color-openstrategy-green;
   color: #fff;
 
   @include on-mobile {

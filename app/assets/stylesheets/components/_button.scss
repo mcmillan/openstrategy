@@ -1,11 +1,50 @@
 .button {
   display: inline-block;
-  padding: 6px 30px;
+  padding: 6px 20px;
   background: #bbb;
   border-radius: 5px;
   text-transform: uppercase;
   color: #fff;
   text-decoration: none;
+  font: inherit;
   font-weight: bold;
   text-align: center;
+  border: 0;
+  cursor: pointer;
+  line-height: inherit;
+  border: none;
+}
+
+.button--dark {
+  background: #999;
+  border-color: #888;
+}
+
+.button--toggle {
+  flex: 1 0 0;
+}
+
+.button--toggle-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px #aaa solid;
+}
+
+.button--toggle-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px #aaa solid;
+}
+
+.button--primary {
+  background: $color-openstrategy-green;
+  border-color: darken($color-openstrategy-green, 10%);
+}
+
+.button--slim {
+  padding: 6px 14px;
+
+  i {
+    margin-right: 4px;
+  }
 }

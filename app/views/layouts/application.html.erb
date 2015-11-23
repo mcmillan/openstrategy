@@ -26,13 +26,13 @@
           <% if user_signed_in? %>
             <%= link_to 'Favorites', favorites_path, class: nav_class('favorites') %>
           <% end %>
-          <%= link_to 'Community', root_url, class: nav_class('community') %>
+          <%= link_to 'Community', community_path, class: nav_class('posts') %>
           <%= link_to 'Jobs', root_url, class: nav_class('jobs') %>
         </div>
 
         <div class="user-overview">
           <% if user_signed_in? %>
-            <div class="user-overview__name"><%= current_user.name %></div>
+            <div class="user-overview__name"><%= name(current_user) %></div>
             <img src="<%= current_user.image %>" class="user-overview__image">
           <% else %>
             <%= link_to 'Sign In', user_omniauth_authorize_path(provider: :twitter), class: 'button button--twitter' %>
@@ -41,6 +41,12 @@
       </div>
 
       <div class="page">
+        <% if flash[:alert] %>
+          <div class="alert alert--error">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>
