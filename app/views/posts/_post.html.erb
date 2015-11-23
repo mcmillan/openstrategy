@@ -24,7 +24,9 @@
           </div>
 
           <div class="post-actions__links">
-            <%= link_to 'Reply', reply_path(post), class: 'button button--dark button--slim' %>
+            <% if user_signed_in? %>
+              <%= link_to 'Reply', reply_path(post), class: 'button button--dark button--slim' %>
+            <% end %>
           </div>
         </div>
       </div>
