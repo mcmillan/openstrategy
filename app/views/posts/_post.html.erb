@@ -4,7 +4,7 @@
   <% end %>
 
   <% if post.body? %>
-    <div class="post-content" style="margin-left: <%= [(defined?(depth) ? depth : 0), 5].min * 50 %>px;">
+    <div class="post-content post-content--depth-<%= [(defined?(depth) ? depth : 0), 5].min %>">
       <div class="post-user">
         <%= name(post.user) %>
 
