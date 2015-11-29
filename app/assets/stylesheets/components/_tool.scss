@@ -3,10 +3,10 @@
   border-radius: 5px;
   display: block;
   margin-bottom: 12px;
-  padding: 20px 28px;
+  padding: 18px 26px;
   position: relative;
   text-decoration: none;
-  transition: 0.1s ease background;
+  transition: .1s ease background;
 
   &:hover:not(.tool--selected):not(.tool--promoted) {
     background: darken(#eee, 5%);

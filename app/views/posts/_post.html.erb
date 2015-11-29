@@ -32,8 +32,16 @@
       </div>
     </div>
   <% else %>
-    <div>
-      Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= name(post.user) %>
+    <div class="post-actions">
+      <div class="post-actions__timestamp">
+        Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= name(post.user) %>
+      </div>
+
+      <div class="post-actions__links">
+        <% if user_signed_in? %>
+          <%= link_to 'Reply', reply_path(post), class: 'button button--dark button--slim' %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

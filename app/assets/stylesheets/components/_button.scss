@@ -20,6 +20,11 @@
   border-color: #888;
 }
 
+.button--twitter {
+  background: #299bd0;
+  border-color: darken(#299bd0, 10%);
+}
+
 .button--toggle {
   flex: 1 0 0;
 }

@@ -3,4 +3,18 @@
   border-bottom: 1px #eee solid;
   margin-bottom: 20px;
   text-align: center;
+
+  @include on-mobile {
+    font-size: .95rem;
+  }
+}
+
+.intro__segment {
+  margin: 0 auto 10px;
+  width: 75%;
+  font-weight: 300;
+
+  @include on-mobile {
+    width: auto;
+  }
 }

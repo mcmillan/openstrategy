@@ -1,6 +1,9 @@
 <% if !user_signed_in? %>
   <div class="intro">
-    <p>oi you, get an account, you pritt stick</p>
+    <p class="intro__segment">Find some of the best strategy tools and resources for free and become a part of a growing community of planners, strategists, and business thinkers with Open Strategy.</p>
+
+    <p class="intro__segment">Sign in with Twitter to store your favorite tools and get involved!</p>
+
     <%= link_to 'Sign In with Twitter', user_omniauth_authorize_path(provider: :twitter), class: 'button button--twitter' %>
   </div>
 <% end %>
