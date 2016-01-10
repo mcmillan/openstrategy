@@ -30,6 +30,7 @@
           <% if current_user.try(:community_enabled?) %>
             <%= link_to 'Community', community_path, class: nav_class('posts') %>
           <% end %>
+          <%= link_to 'Suggest a tool', new_suggestion_url, class: nav_class('suggestions') %>
         </div>
 
         <div class="user-overview">

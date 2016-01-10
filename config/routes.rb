@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # app
   root to: 'categories#index'
   resources :categories, only: [:index, :show]
-  resources :suggestions, only: [:create]
+  resources :suggestions, only: [:new, :create]
   resources :products, only: [] do
     member do
       get 'image'

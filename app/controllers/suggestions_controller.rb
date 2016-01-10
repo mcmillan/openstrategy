@@ -1,11 +1,15 @@
 class SuggestionsController < ApplicationController
+  def new
+    @suggestion = Suggestion.new
+  end
+
   def create
     @suggestion = Suggestion.new(suggestion_params)
 
     if @suggestion.save
-      head :no_content
+      redirect_to root_url, notice: "Thanks! We've got your suggestion. Hopefully you'll see it on the site soon!"
     else
-      render json: { errors: @suggestion.errors.full_messages }
+      render :new
     end
   end
 
