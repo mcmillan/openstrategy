@@ -19,6 +19,8 @@ ActiveAdmin.register User do
     actions
   end
 
+  permit_params :name, :location, :bio, :admin, :community_enabled
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
