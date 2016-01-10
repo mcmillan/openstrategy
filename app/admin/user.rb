@@ -4,6 +4,7 @@ ActiveAdmin.register User do
     column :location
     column :bio
     column :admin
+    column :community_enabled
     actions
   end
 
