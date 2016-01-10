@@ -7,6 +7,17 @@ ActiveAdmin.register User do
     actions
   end
 
+  form do |f|
+    inputs do
+      input :name
+      input :location
+      input :bio
+      input :admin
+      input :community_enabled
+    end
+    actions
+  end
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
