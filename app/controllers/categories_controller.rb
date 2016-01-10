@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     @category = Category.friendly.find(params[:id])
 
     if user_signed_in?
-      @products = Product.ordered_by_favorites(@category, current_user).all
+      @products = Product.ordered_by_favorites(@category, current_user)
     else
       @products = @category.products
     end

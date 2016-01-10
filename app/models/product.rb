@@ -15,10 +15,7 @@ class Product < ActiveRecord::Base
   default_scope -> { order('promoted DESC') }
 
   def self.ordered_by_favorites(category, user)
-    joins('LEFT OUTER JOIN favorites ON products.id = favorites.product_id')
-      .where('favorites.user_id = ? OR favorites.user_id IS NULL', user.id)
-      .where(category: category)
-      .order('favorites.user_id ASC')
+    category.products.all.sort_by { |p| p.favorited_by?(user) ? 0 : 1 }
   end
 
   def favorited_by?(user)
