@@ -30,5 +30,26 @@
         </div>
       <% end %>
     </div>
+  <% else %>
+    <div class="tool-list">
+      <% unless cookies[:subscribed_to_newsletter] %>
+        <div class="ad ad--newsletter">
+          <div class="ad__title">Subscribe to our newsletter!</div>
+
+          <div class="ad__description">
+            Get the best strategy tools, reads, and jobs in your inbox.
+          </div>
+
+          <div class="ad__body">
+            <%= form_tag emails_path do %>
+              <div class="form-control">
+                <%= email_field_tag :email, nil, class: 'form-control__input', placeholder: 'Your e-mail address' %>
+              </div>
+              <%= submit_tag 'Subscribe', class: 'button button--primary' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
