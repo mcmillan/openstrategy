@@ -39,6 +39,7 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #666;
+  white-space: nowrap;
 
   &:not(.nav-link--active):hover {
     background: #eee;
