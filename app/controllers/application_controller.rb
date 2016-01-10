@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
     authenticate_user!
     fail ActionController::RoutingError, 'Not an admin' unless current_user.admin?
   end
+
+  def authenticate_community_user!
+    authenticate_user!
+    fail ActionController::RoutingError, 'Not a valid community user' unless current_user.community_enabled?
+  end
 end

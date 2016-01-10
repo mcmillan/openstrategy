@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_community_user!
 
   def new
     @reply = Reply.new(

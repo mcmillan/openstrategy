@@ -26,7 +26,9 @@
           <% if user_signed_in? %>
             <%= link_to 'Favorites', favorites_path, class: nav_class('favorites') %>
           <% end %>
-          <%= link_to 'Community', community_path, class: nav_class('posts') %>
+          <% if current_user.try(:community_enabled?) %>
+            <%= link_to 'Community', community_path, class: nav_class('posts') %>
+          <% end %>
         </div>
 
         <div class="user-overview">
