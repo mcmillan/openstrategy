@@ -11,14 +11,22 @@ class User < ActiveRecord::Base
   has_many :products, through: :favorites
 
   def self.from_omniauth(auth)
-    where(oauth_provider: auth['provider'], oauth_user_id: auth['uid']).first_or_create do |u|
+    u = where(oauth_provider: auth['provider'], oauth_user_id: auth['uid']).first_or_initialize do |u|
       u.email = auth.info.email
       u.password = Devise.friendly_token[0, 20]
-      u.name = auth.info.name
-      u.location = auth.info.location
-      u.bio = auth.info.description
-      u.image = auth.info.image
     end
+
+    u.name = auth.info.name
+    u.location = auth.info.location
+    u.bio = auth.info.description
+    u.image = auth.info.image
+    u.twitter_username = auth.info.nickname
+    u.twitter_access_token = auth.credentials.token
+    u.twitter_access_token_secret = auth.credentials.secret
+
+    u.save
+
+    u
   end
 
   def email_required?
