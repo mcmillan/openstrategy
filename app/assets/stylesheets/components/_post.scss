@@ -12,6 +12,21 @@
   }
 }
 
+.post--sticky {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    border: 12px transparent solid;
+    border-right-color: $color-openstrategy-green;
+    border-top-color: $color-openstrategy-green;
+    content: ' ';
+  }
+}
+
 .post__title {
   font-weight: bold;
   color: inherit;
@@ -22,6 +37,26 @@
   @include on-mobile {
     flex: none;
     margin-bottom: 5px;
+  }
+}
+
+.post__pinned {
+  margin-right: 2px;
+  background: $color-openstrategy-green;
+  color: #fff;
+  line-height: 1rem;
+  font-size: 0.65rem;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: -2px;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  > i {
+    margin-right: 2px;
   }
 }
 

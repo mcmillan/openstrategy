@@ -29,5 +29,12 @@
     <%= f.text_area :body, class: 'form-control__input' %>
   </div>
 
+  <% if current_user.admin? %>
+    <div class="form-control">
+      <%= f.label :sticky, 'Sticky?', class: 'form-control__label' %>
+      <%= f.check_box :sticky, class: 'form-control__label' %>
+    </div>
+  <% end %>
+
   <button type="submit" class="button new-post__submit">Post</button>
 <% end %>

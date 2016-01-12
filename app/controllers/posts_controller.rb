@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.sticky = post_params[:sticky] == '1' && current_user.admin?
 
     if @post.save
       redirect_to @post
@@ -28,6 +29,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :body)
+    params.require(:post).permit(:title, :url, :body, :sticky)
   end
 end

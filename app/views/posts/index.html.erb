@@ -4,8 +4,14 @@
 <% end %>
 
 <% @posts.each do |p| %>
-  <div class="post">
+  <div class="post<% if p.sticky? %> post--sticky<% end %>">
     <%= link_to p.url? ? p.url : p, class: 'post__title', target: p.url? ? '_blank' : nil do %>
+      <% if p.sticky? %>
+        <span class="post__pinned">
+          <i class="fa fa-rocket"></i> Pinned
+        </span>
+      <% end %>
+
       <%= p.title %>
 
       <% if p.url? %>
