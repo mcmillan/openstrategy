@@ -48,6 +48,8 @@
 
   @include on-mobile {
     border-radius: 0;
+    margin-right: 0;
+    min-width: min-content;
   }
 }
 
