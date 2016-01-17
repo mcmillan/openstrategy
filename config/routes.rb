@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   resources :favorites, only: :index
   resources :emails, only: :create
   resources :posts, only: [:show, :new, :create]
-  resources :replies, only: [:new, :create]
+  resources :replies, only: [:new, :create, :edit, :update]
   get 'community', to: 'posts#index', as: :community
 end
