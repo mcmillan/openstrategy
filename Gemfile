@@ -35,6 +35,7 @@ gem 'color'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'rollbar', '~> 1.2.7'
+gem 'rails_autolink'
 
 group :development do
   gem 'spring'

@@ -15,7 +15,7 @@
 
       <div class="post-body">
         <div class="post-body__text">
-          <%= post.body %>
+          <%= auto_link(post.body.gsub(/\n/, '<br>'), html: { target: '_blank' }) { |t| truncate(t, length: 30) } %>
         </div>
 
         <div class="post-actions">
