@@ -1,5 +1,16 @@
 ActiveAdmin.register Post do
-  permit_params :title, :body
+  permit_params :title, :body, :url, :sticky, :user
+
+  form do |f|
+    f.inputs do
+      f.input :user
+      f.input :title
+      f.input :url
+      f.input :body
+      f.input :sticky
+    end
+    f.actions
+  end
 
   index do
     column :title
