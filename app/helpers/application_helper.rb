@@ -16,7 +16,7 @@ module ApplicationHelper
     render(partial: 'name', locals: { user: user })
   end
 
-  def reply_path(post)
+  def repliable_path(post)
     type = post.is_a?(Post) ? 'post' : 'reply'
     new_reply_path(parent_type: type, parent_id: post.id)
   end

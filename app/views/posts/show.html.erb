@@ -14,7 +14,7 @@
       <p class="empty__description">Nobody's replied to this just yet.</p>
 
       <% if user_signed_in? %>
-        <%= link_to 'Start the conversation', reply_path(@post), class: 'button button--primary'  %>
+        <%= link_to 'Start the conversation', repliable_path(@post), class: 'button button--primary'  %>
       <% end %>
     </div>
   <% end %>

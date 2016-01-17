@@ -25,11 +25,11 @@
 
           <div class="post-actions__links">
             <% if current_user == post.user && post.is_a?(Reply) %>
-              <!-- <%= link_to 'Edit', edit_reply_path(post), class: 'button button--dark button--slim' %> -->
+              <%= link_to 'Edit', edit_reply_path(post), class: 'button button--dark button--slim' %>
             <% end %>
 
             <% if user_signed_in? %>
-              <%= link_to 'Reply', reply_path(post), class: 'button button--dark button--slim' %>
+              <%= link_to 'Reply', repliable_path(post), class: 'button button--dark button--slim' %>
             <% end %>
           </div>
         </div>
@@ -43,7 +43,7 @@
 
       <div class="post-actions__links">
         <% if user_signed_in? %>
-          <%= link_to 'Reply', reply_path(post), class: 'button button--dark button--slim' %>
+          <%= link_to 'Reply', repliable_path(post), class: 'button button--dark button--slim' %>
         <% end %>
       </div>
     </div>
