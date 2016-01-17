@@ -17,7 +17,6 @@ module ApplicationHelper
   end
 
   def reply_path(post)
-    return super if post.persisted?
     type = post.is_a?(Post) ? 'post' : 'reply'
     new_reply_path(parent_type: type, parent_id: post.id)
   end
