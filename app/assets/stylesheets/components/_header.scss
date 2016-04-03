@@ -75,7 +75,7 @@
 
 .user-overview__name {
   margin: 0 10px;
-
+  text-align: right;
 }
 
 .user-overview__image {
@@ -86,7 +86,6 @@
 .user-overview__links {
   display: block;
   font-size: 0.75rem;
-  text-align: right;
   text-transform: uppercase;
 
   a {

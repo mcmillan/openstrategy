@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :products, through: :favorites
 
+  validates :email, format: /@/, allow_blank: true
+
   def self.from_omniauth(auth)
     u = where(oauth_provider: auth['provider'], oauth_user_id: auth['uid']).first_or_initialize do |u|
       u.email = auth.info.email
