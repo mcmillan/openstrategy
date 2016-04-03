@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # users
-  devise_for :users, skip: :sessions, controllers: {
+  devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :users, only: [:show]

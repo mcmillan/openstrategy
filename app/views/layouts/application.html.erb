@@ -35,7 +35,14 @@
 
         <div class="user-overview">
           <% if user_signed_in? %>
-            <div class="user-overview__name"><%= name(current_user) %></div>
+            <div class="user-overview__name">
+              <%= name(current_user) %>
+              <div class="user-overview__links">
+                <%= link_to 'My Profile', current_user %>
+                &middot;
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              </div>
+            </div>
             <img src="<%= current_user.image %>" class="user-overview__image">
           <% else %>
             <%= link_to 'Sign In', user_omniauth_authorize_path(provider: :twitter), class: 'button button--twitter' %>

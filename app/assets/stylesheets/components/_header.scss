@@ -79,6 +79,18 @@
 }
 
 .user-overview__image {
-  height: 30px;
+  height: 40px;
   display: block;
+}
+
+.user-overview__links {
+  display: block;
+  font-size: 0.75rem;
+  text-align: right;
+  text-transform: uppercase;
+
+  a {
+    color: #999;
+    text-decoration: none;
+  }
 }
