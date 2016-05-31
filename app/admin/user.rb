@@ -5,6 +5,7 @@ ActiveAdmin.register User do
     column :bio
     column :admin
     column :community_enabled
+    column :jobs_enabled
     actions
   end
 
@@ -15,11 +16,12 @@ ActiveAdmin.register User do
       input :bio
       input :admin
       input :community_enabled
+      input :jobs_enabled
     end
     actions
   end
 
-  permit_params :name, :location, :bio, :admin, :community_enabled
+  permit_params :name, :location, :bio, :admin, :community_enabled, :jobs_enabled
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403161456) do
+ActiveRecord::Schema.define(version: 20160531195827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,26 @@ ActiveRecord::Schema.define(version: 20160403161456) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "company"
+    t.string   "location"
+    t.string   "contract_type"
+    t.text     "description"
+    t.string   "apply_email"
+    t.string   "apply_url"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "slug"
+  end
+
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -155,12 +175,14 @@ ActiveRecord::Schema.define(version: 20160403161456) do
     t.string   "twitter_access_token"
     t.string   "twitter_access_token_secret"
     t.boolean  "notifications_enabled"
+    t.boolean  "jobs_enabled"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "jobs", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "replies", "users"
 end

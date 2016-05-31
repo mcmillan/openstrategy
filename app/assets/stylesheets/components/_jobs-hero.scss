@@ -1,0 +1,44 @@
+.jobs-hero {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto 2rem;
+
+  @include on-tablet {
+    width: 80%;
+  }
+
+  @include on-mobile {
+    width: auto;
+  }
+}
+
+.jobs-hero__title {
+  font-size: 3.5rem;
+  border-bottom: 2px $color-openstrategy-green solid;
+  max-width: max-content;
+  margin: 1rem auto 0;
+  padding: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75rem;
+  line-height: 1;
+
+  @include on-mobile {
+    font-size: 2.5rem;
+    letter-spacing: 0.4rem;
+  }
+}
+
+.jobs-hero.jobs-hero--fat-underline .jobs-hero__title {
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  @include on-mobile {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.jobs-hero__blurb {
+  margin: 1rem 0;
+  color: #666;
+}

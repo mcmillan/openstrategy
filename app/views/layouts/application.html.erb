@@ -30,6 +30,9 @@
           <% if current_user.try(:community_enabled?) %>
             <%= link_to 'Community', community_path, class: nav_class('posts') %>
           <% end %>
+          <% if current_user.try(:jobs_enabled?) %>
+            <%= link_to 'Jobs', jobs_path, class: nav_class('jobs') %>
+          <% end %>
           <%= link_to 'Suggest a tool', new_suggestion_url, class: nav_class('suggestions') %>
         </div>
 

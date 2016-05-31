@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   resources :emails, only: :create
   resources :posts, only: [:show, :new, :create]
   resources :replies, only: [:new, :create, :edit, :update]
+  resources :jobs, only: [:index, :show]
   get 'community', to: 'posts#index', as: :community
 end

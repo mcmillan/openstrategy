@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
     authenticate_user!
     fail ActionController::RoutingError, 'Not a valid community user' unless current_user.community_enabled?
   end
+
+  def authenticate_jobs_user!
+    authenticate_user!
+    fail ActionController::RoutingError, 'Not a valid jobs user' unless current_user.jobs_enabled?
+  end
 end
