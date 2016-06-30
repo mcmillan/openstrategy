@@ -1,4 +1,7 @@
 ActiveAdmin.register Product do
+  filter :category
+  filter :promoted
+
   form do |f|
     f.inputs do
       f.input :category
@@ -17,6 +20,7 @@ ActiveAdmin.register Product do
     column :description
     column :url
     column :promoted
+    column 'Clicks', :product_clicks_count
     column 'Logo' do |p|
       p.logo.present? ? link_to('View', p.logo.url, target: '_blank') : '-'
     end
