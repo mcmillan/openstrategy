@@ -1,7 +1,8 @@
 .intro {
-  padding-bottom: 25px;
+  padding: 25px 0;
+  border-top: 1px #eee solid;
   border-bottom: 1px #eee solid;
-  margin-bottom: 20px;
+  margin: 20px 0;
   text-align: center;
 
   @include on-mobile {
