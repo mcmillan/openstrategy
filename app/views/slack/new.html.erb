@@ -1,0 +1,27 @@
+<div class="slack">
+  <!-- <%= image_tag 'slack-logo.png', class: 'slack__logo' %> -->
+
+  <h1 class="slack__title">Join the Open Strategy Slack</h1>
+
+  <p class="slack__blurb">
+    We've set up a Slack group so you can chat to other strategists about strategy!
+    Request an invite using the form below.
+  </p>
+
+  <%= form_tag :slack, class: 'slack__form' do %>
+    <% if @error %>
+      <div class="alert alert--error">
+        <%= @error %>
+      </div>
+    <% end %>
+
+    <div class="form-control">
+      <label class="form-control__label">Your email:</label>
+      <%= email_field_tag 'slack[email]', nil, class: 'form-control__input', required: true %>
+    </div>
+
+    <%= submit_tag 'Join', class: 'button button--block button--primary' %>
+  <% end %>
+
+  <em class="slack__disclaimer">Open Strategy is not created by, affiliated with, or supported by Slack Technologies, Inc.</em>
+</div>

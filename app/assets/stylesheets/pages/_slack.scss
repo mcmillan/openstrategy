@@ -1,0 +1,34 @@
+.slack {
+  text-align: center;
+}
+
+.slack__logo {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.slack__form {
+  background-color: #eee;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  padding: 1rem 1.25rem;
+  margin: 0 auto 0.5rem;
+  text-align: left;
+}
+
+.slack__title {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.slack__blurb {
+  margin-bottom: 1.5rem;
+}
+
+.slack__disclaimer {
+  font-size: 0.75rem;
+  color: #bbb;
+}

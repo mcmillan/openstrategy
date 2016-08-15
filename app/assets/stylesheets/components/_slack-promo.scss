@@ -1,0 +1,42 @@
+.slack-promo {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #e01563;
+  color: #fff;
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  @include on-mobile {
+    display: block;
+    padding: 0.75rem 1rem;
+  }
+}
+
+.slack-promo__blurb {
+
+}
+
+.slack-promo__link {
+  padding: 0.25rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: auto;
+  border: 2px #fff solid;
+  border-radius: 5px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+
+  @include on-mobile {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: #e01563;
+  }
+}

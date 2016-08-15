@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   resources :replies, only: [:new, :create, :edit, :update]
   resources :jobs, only: [:index, :show]
   get 'community', to: 'posts#index', as: :community
+  get 'slack', to: 'slack#new'
+  post 'slack', to: 'slack#create'
 end
