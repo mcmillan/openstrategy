@@ -1,9 +1,0 @@
-<%= link_to user, class: "name #{user.admin? ? 'name--admin' : ''}" do %>
-  <%= user.name %>
-
-  <% if user.admin? %>
-    <div class="name__badge">
-      <i class="fa fa-rocket"></i>
-    </div>
-  <% end %>
-<% end %>
